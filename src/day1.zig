@@ -4,8 +4,6 @@ const file_input = @embedFile("files/input/day1.txt");
 const split = std.mem.split;
 
 pub fn main() !void {
-    var splits = split(u8, file_input, "\n");
-
     var sum: i32 = 0;
 
     var map = std.StringHashMap(u8).init(std.heap.page_allocator);
@@ -20,6 +18,8 @@ pub fn main() !void {
     try map.put("seven", '7');
     try map.put("eight", '8');
     try map.put("nine", '9');
+
+    var splits = split(u8, file_input, "\n");
 
     while (splits.next()) |line| {
         var first_digit: u8 = 0;
